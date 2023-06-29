@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_193900) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "author"
+    t.integer "author_id"
   end
 
   create_table "users", force: :cascade do |t|

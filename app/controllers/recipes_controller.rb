@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
 
   # POST /recipes or /recipes.json
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(author: current_user)
 
     respond_to do |format|
       if @recipe.save
@@ -65,6 +65,6 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:title, :description, :body, :author)
+      params.require(:recipe).permit(:title, :description, :body, :author_id)
     end
 end
