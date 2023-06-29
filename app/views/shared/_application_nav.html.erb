@@ -1,0 +1,21 @@
+<nav class="navbar navbar-toggleable-md navbar-dark bg-dark">
+
+  <div class="container">
+    <%= link_to "Grey-Unicorn", root_path, class: 'navbar-brand' %>
+    <div class="nav-masthead" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Recipes", recipes_path, class: 'nav-link' %>
+        </li>
+      </ul>
+          <div class="navbar-item navbar-end">
+      <%= link_to edit_user_registration_path(current_user) do %>
+        <span><%= profile_helper(current_user) %></span>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</nav>
