@@ -5,8 +5,8 @@ class User < ApplicationRecord
   ## The :root_admin can access any page regardless of access settings. Use with caution!   ##
   ## The multiple option can be set to true if you need users to have multiple roles.       ##
   petergate(roles: [:admin, :editor], multiple: false)                                      ##
-  ############################################################################################ 
- 
+  ############################################################################################
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates_presence_of :name
 
   has_many :comments, dependent: :destroy
-  has_many :recipes, dependent: :destroy
+  has_many :recipes, as: :author, dependent: :destroy
   mount_uploader :profile, ProfileUploader
   has_many :authorizations
   def first_name
