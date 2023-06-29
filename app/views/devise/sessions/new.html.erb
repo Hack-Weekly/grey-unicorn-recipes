@@ -1,0 +1,66 @@
+
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col">
+      <div class="col-md-4">
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="col-md-8">
+            <div class="fb-login-button button is-fullwidth" data-width="" data-size="large" data-button-type="continue_with"   data-layout="default" data-auto-logout-link="false" data-use-continue-as="false">
+            </div>
+            <br>
+            <div class="github-login" data-turbo="false">
+              <%= button_to  user_github_omniauth_authorize_path, format: :html, method: :post, class: "btn btn-dark btn-large" do %>
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+              <% end %>
+            </div>
+            <br>
+            <div class="google-login" data-turbo="false">
+              <%= button_to user_google_oauth2_omniauth_authorize_path, format: :html, method: :post, class: "btn btn-is-link btn-large" do %>
+                <span class="icon">
+                  <i class="fa-brands fa-google"></i>
+                </span>
+              <% end %>
+            </div>
+          <h2>Log in</h2>
+          <br>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+          <div class="field">
+            <div class="control">
+                <%= f.label :email %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete:    "email", class: "input" %>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control" type="password">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+            </div>
+        </div>
+
+
+          <% if devise_mapping.rememberable? %>
+            <div class="checkbox">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end %>
+
+          <div class="actions">
+            <%= f.submit "Log in", class: "button is-primary" %>
+          </div>
+          <% end %>
+          <br>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
