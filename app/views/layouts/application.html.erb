@@ -11,9 +11,9 @@
   </head>
 
   <body>
-    <header>
-      <a id="title" href="#">API Viewer</a>
-    </header>
+    <%= render "shared/application_nav" %>
     <%= yield %>
+    <%= render "shared/application_footer" %>
+    <%= render 'shared/flash_container' %>
   </body>
 </html>
