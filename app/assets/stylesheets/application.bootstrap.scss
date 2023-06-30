@@ -1,3 +1,13 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 @import 'actiontext.css';
+
+.close-flash {
+	color: white;
+}
+
+.svgbtn {
+	display: inline-block;
+	z-index: 100;
+	width: 30px;
+}
