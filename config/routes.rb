@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       omniauth_callbacks: "users/omniauth_callbacks",
     }
 
-  get root to: "pages#home"
+  get root to: "recipes#index"
 
   devise_scope :user do
     get "users", to: "devise/sessions#new"
