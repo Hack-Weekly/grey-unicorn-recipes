@@ -1,21 +1,27 @@
-<nav class="navbar navbar-toggleable-md navbar-dark bg-dark">
-
+<nav class="navbar navbar-expand navbar-dark bg-dark">
   <div class="container">
     <%= link_to "Grey-Unicorn", root_path, class: 'navbar-brand' %>
-    <div class="nav-masthead" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+
+      <ul class="navbar-nav md-auto flex-row">
         <li class="nav-item">
           <%= link_to "Home", root_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to "Recipes", recipes_path, class: 'nav-link' %>
         </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link' %>
+          <% else %>
+            <%= link_to "Login", new_user_session_path, class: 'nav-link' %>
+          <% end %>
+        </li>
       </ul>
-          <div class="navbar-item navbar-end">
-      <%= link_to edit_user_registration_path(current_user) do %>
-        <span><%= profile_helper(current_user) %></span>
-      <% end %>
-    </div>
+      <div class="navbar-item navbar-end">
+        <%= link_to edit_user_registration_path(current_user) do %>
+          <span><%= profile_helper(current_user) %></span>
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>
