@@ -8,7 +8,6 @@ class RecipeApi
   end
 
   def request_recipes(user_query:, offset: 0)
-    # TODO: add error handling and handle no more results
     @last_query = user_query
     conn = Faraday.new(
       url: 'https://api.api-ninjas.com',
@@ -18,7 +17,23 @@ class RecipeApi
 
     response = conn.get('/v1/recipe')
 
-    response.map { |recipe| convert_recipe(recipe) }
+    if response.success?
+      data = response.body
+      if data.empty?
+        return {success: false, error: {status: nil, message: "No results found"} }
+      end
+
+      recipe_bundle = response.body.map { |recipe| convert_recipe(recipe) }
+      return {success: true, data: recipe_bundle}
+    else
+      status_code = response.status
+      error_message = response.body['error'] || 'Unknown error occured'
+      Rails.logger.error("API request failed with status #{status_code}: #{error_message}")
+      {success: false, error: {status: status_code, message: error_message}}
+    end  
+  rescue Faraday::Error => e
+    Rails.logger.error("API request failed with exception: #{e.message}")
+    { success: false, error: { status: nil, message: "Server error, please try again later"}}
   end
 
   def convert_recipe(json_body)
