@@ -6,21 +6,21 @@
       </div>
       <div class="card">
         <div class="card-body">
-          <div class="col-md-8">
+          <div class="col-md-4">
             <div class="fb-login-button button is-fullwidth" data-width="" data-size="large" data-button-type="continue_with"   data-layout="default" data-auto-logout-link="false" data-use-continue-as="false">
             </div>
             <br>
-            <div class="github-login" data-turbo="false">
+            <div class="github-login d-grid" data-turbo="false">
               <%= button_to  user_github_omniauth_authorize_path, format: :html, method: :post, class: "btn btn-dark btn-large" do %>
-                <span class="icon">
+                <span class="icon"> Login with Github
                   <i class="fab fa-github"></i>
                 </span>
               <% end %>
             </div>
             <br>
-            <div class="google-login" data-turbo="false">
-              <%= button_to user_google_oauth2_omniauth_authorize_path, format: :html, method: :post, class: "btn btn-is-link btn-large" do %>
-                <span class="icon">
+            <div class="google-login d-grid" data-turbo="false">
+              <%= button_to user_google_oauth2_omniauth_authorize_path, format: :html, method: :post, class: "btn btn-outline-success btn-large" do %>
+                <span class="icon"> Login with Google
                   <i class="fa-brands fa-google"></i>
                 </span>
               <% end %>
@@ -52,8 +52,8 @@
             </div>
           <% end %>
 
-          <div class="actions">
-            <%= f.submit "Log in", class: "button is-primary" %>
+          <div class="actions d-grid">
+            <%= f.submit "Log in", class: "btn btn-primary" %>
           </div>
           <% end %>
           <br>
