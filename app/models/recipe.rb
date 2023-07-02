@@ -1,5 +1,5 @@
 class Recipe < ApplicationRecord
-  has_rich_text :body
+  has_rich_text :instructions
   has_one_attached :image, dependent: :destroy
 
   has_many :ingredients
