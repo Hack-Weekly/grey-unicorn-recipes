@@ -1,8 +1,8 @@
-<%= form_with(model: recipe) do |form| %>
+<%= form_with(model: recipe, local: true) do |form| %>
+  <%# Form Errors %>
   <% if recipe.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-
       <ul>
         <% recipe.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,22 +11,57 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
+  <div class="row">
+    <%# First Form Column %>
+    <div class="col">
+      <%# Title Field %>
+      <div class="mb-3">
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-control" %>
+      </div>
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.rich_text_area :body %>
-  </div>
+      <%# Ingredients Fields %>
+      <div id="ingredients">
+        <%= form.label :ingredients, class: "form-label" %>
+        <%= form.fields_for(:ingredients) do |ingredient_form| %>
+          <%= render "ingredient_field", f: ingredient_form %>
+        <% end %>
+      </div>
 
-  <div>
-    <%= form.submit %>
+      <div class="mb-3", data-controller="ingredient-fields" data-action="click->ingredient-fields#add">
+        <%= button_to "#", class: "btn btn-success btn-sm", remote: true do %>
+          <span class="bi-plus-lg"></span>&nbsp;Add Ingredient
+        <% end %>
+      </div>
+
+      <%# Instructions Field %>
+      <div class="mb-3">
+        <%= form.label :body, class: "form-label" %>
+        <%= form.rich_text_area :body, class: "form-label" %>
+      </div>
+
+      <%# Submit Button %>
+      <div>
+        <%= form.submit "Create Recipe", class: "btn btn-primary" %>
+      </div>
+    </div>
+
+    <%# Second Form Column %>
+    <div class="col">
+      <div class="mb-3">
+        <label class="form-label">Recipe Image</label>
+      </div>
+
+      <div class="upload-dropzone text-center mb-3 p-4" data-upload-target="dropzone">
+        <i class="bi bi-upload"></i>
+        <p class="small my-2">Drag & Drop image inside dashed region<br><i>or</i></p>
+
+        <%= form.file_field :image, data: { action: "change->upload#handleInputFiles", upload_target: "input" }, class: "position-absolute invisible", accept: "image/jpeg, image/png, image/svg+xml" %>
+        <%= form.label :image, "Choose file", class: "btn btn-primary mb-3" %>
+
+        <div class="upload-gallery d-flex flex-wrap justify-content-center gap-3 mb-0" data-upload-target="gallery"></div>
+      </div>
+    </div>
   </div>
 <% end %>
