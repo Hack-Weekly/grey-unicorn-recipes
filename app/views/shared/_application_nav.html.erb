@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-3">
   <div class="container">
     <%= link_to "Grey-Unicorn", root_path, class: 'navbar-brand' %>
 
@@ -7,7 +7,10 @@
           <%= link_to "Home", root_path, class: 'nav-link' %>
         </li>
         <li class="nav-item">
-          <%= link_to "Recipes", recipes_path, class: 'nav-link' %>
+          <%= link_to "Add Recipe", new_recipe_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Recipes", "/", class: 'nav-link' %>
         </li>
         <li>
           <% if user_signed_in? %>

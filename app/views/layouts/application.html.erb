@@ -10,10 +10,18 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
-    <%= render "shared/application_nav" %>
-    <%= yield %>
-    <%= render "shared/application_footer" %>
-    <%= render 'shared/flash_container' %>
+  <body class="<%= "#{controller_path.gsub('/', ' ')} #{action_name}" %>">
+    <header id="header">
+      <%= render "shared/application_nav" %>
+    </header>
+    <div id="main">
+      <div class="container">
+        <%= render 'shared/flash_container' %>
+        <%= yield %>
+      </div>
+    </div>
+    <footer id="footer">
+      <%= render "shared/application_footer" %>
+    </footer>
   </body>
 </html>
