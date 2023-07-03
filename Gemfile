@@ -30,6 +30,10 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "dotenv-rails"
   gem "pry-byebug"
+  gem "rubocop", require: false         # Enforces Ruby style conventions.
+  gem "rubocop-performance"             # RuboCop performance rules.
+  gem "rubocop-rails"                   # RuboCop Rails rules.
+  gem "rubocop-rspec"                   # RuboCop RSpec rules.
 end
 
 group :development do
