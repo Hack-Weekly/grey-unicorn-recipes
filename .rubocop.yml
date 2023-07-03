@@ -10,11 +10,69 @@ AllCops:
     - "vendor/**/*"
     - "db/**/*"
 
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+  Exclude:
+    - "Gemfile"
+    - "config/routes.rb"
+    - "config/initializers/devise.rb"
+
+Metrics/AbcSize:
+  Enabled: true
+  Max: 17
+  CountRepeatedAttributes: true
+
+Metrics/BlockLength:
+  Enabled: true
+  AllowedMethods:
+   - "context"
+   - "describe"
+   - "it"
+   - "shared_examples"
+   - "namespace"
+   - "task"
+   - "configure"
+   - "draw"
+  Max: 25
+  CountComments: false
+
+Metrics/ClassLength:
+  Enabled: true
+  Max: 100
+  CountComments: false
+  Exclude:
+   - "spec/**/*"
+
+Metrics/CyclomaticComplexity:
+  Enabled: true
+  Max: 7
+
+Metrics/MethodLength:
+  Enabled: true
+  Max: 20
+  CountComments: false
+  CountAsOne:
+   - "array"
+   - "hash"
+   - "heredoc"
+   - "method_call"
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/ParenthesesAroundCondition:
+  Enabled: true
+  AllowInMultilineConditions: true
 
 Style/StringLiterals:
   Enabled: true

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def store_action
     return unless request.get?
+
     if (
          request.path != "/users/sign_in" &&
            request.path != "/users/sign_up" &&
@@ -29,8 +30,7 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(
       :sign_up,
-      keys: %i[name location employer age link profile],
+      keys: %i[name location employer age link profile]
     )
   end
-
 end

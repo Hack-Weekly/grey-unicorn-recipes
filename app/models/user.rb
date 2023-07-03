@@ -7,24 +7,25 @@ class User < ApplicationRecord
   petergate(roles: [:admin, :editor], multiple: false)                                      ##
   ############################################################################################
 
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[github google_oauth2]
 
-  validates_presence_of :name
+  mount_uploader :profile, ProfileUploader
 
   has_many :comments, dependent: :destroy
   has_many :recipes, as: :author, dependent: :destroy
-  mount_uploader :profile, ProfileUploader
   has_many :authorizations
+
+  validates :name, presence: true
+
   def first_name
-    self.name.split.first
+    name.split.first
   end
 
   def last_name
-    self.name.split.last
+    name.split.last
   end
 
   class << self
@@ -36,7 +37,7 @@ class User < ApplicationRecord
           provider: auth.provider,
           uid: auth.uid.to_s,
           token: auth.credentials.token,
-          secret: auth.credentials.secret,
+          secret: auth.credentials.secret
         ).first_or_initialize
 
       if authorization.user.blank?
@@ -55,7 +56,7 @@ class User < ApplicationRecord
             email: auth.info.email,
             password: Devise.friendly_token[0, 10],
             name: auth.info.name,
-            profile: auth.info.image,
+            profile: auth.info.image
           )
         end
 

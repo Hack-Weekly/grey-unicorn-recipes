@@ -13,7 +13,7 @@ gem "stimulus-rails"                   # Hotwire"s modest JavaScript framework.
 gem "cssbundling-rails"                # Bundle and process CSS.
 gem "jbuilder"                         # Build JSON APIs with ease.
 gem "redis", "~> 4.0"                  # Use Redis adapter to run Action Cable in production.
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]  # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "bootsnap", require: false         # Reduce boot times through caching.
 gem "image_processing", "~> 1.2"       # Use Active Storage variants
 gem "faraday"
@@ -27,7 +27,7 @@ gem "omniauth-google-oauth2"
 gem "carrierwave-aws", "~> 1.5"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
   gem "dotenv-rails"
   gem "pry-byebug"
   gem "rubocop", require: false         # Enforces Ruby style conventions.

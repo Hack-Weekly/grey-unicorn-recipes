@@ -1,21 +1,20 @@
 module ApplicationHelper
-
-    def login_helper(style = "")
-      if !user_signed_in?
-        link_to("Register", new_user_registration_path, class: "navbar-item") +
-          " ".html_safe +
-          link_to("Login", new_user_session_path, class: "navbar-item")
-      else
-        link_to(
-          "Logout",
-          destroy_user_session_path,
-          data: {
-            turbo_method: :delete,
-          },
-          class: "navbar-item",
-        )
-      end
+  def login_helper(style = "")
+    if !user_signed_in?
+      link_to("Register", new_user_registration_path, class: "navbar-item") +
+        " ".html_safe +
+        link_to("Login", new_user_session_path, class: "navbar-item")
+    else
+      link_to(
+        "Logout",
+        destroy_user_session_path,
+        data: {
+          turbo_method: :delete
+        },
+        class: "navbar-item"
+      )
     end
+  end
 
   def active?(path)
     "active" if current_page? path
@@ -24,15 +23,15 @@ module ApplicationHelper
   def flash_class(level)
     case level.to_sym
     when :notice
-      'bg-primary'
+      "bg-primary"
     when :success
-      'bg-success'
+      "bg-success"
     when :alert
-      'bg-warning'
+      "bg-warning"
     when :error
-      'bg-danger'
+      "bg-danger"
     else
-      'bg-info'
+      "bg-info"
     end
   end
 
@@ -46,7 +45,7 @@ module ApplicationHelper
         member.profile.to_s,
         width: 60,
         height: 60,
-        style: "border-radius: 50%",
+        style: "border-radius: 50%"
       ).html_safe
     else
       gravatar_helper(user)
@@ -58,7 +57,7 @@ module ApplicationHelper
       "https://gravatar.com/avatar/#{Digest::MD5.hexdigest(user.email.downcase)}",
       width: 60,
       height: 60,
-      style: "border-radius: 50%;",
+      style: "border-radius: 50%;"
     )
   end
 end
