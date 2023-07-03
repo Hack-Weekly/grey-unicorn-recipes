@@ -3,10 +3,13 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    api = RecipeApi.new
-    api_response = api.request_recipes(user_query: "hot dogs")
-    @recipes = api_response[:data] if api_response[:success]
-    @errors = api_response[:error] unless api_response[:success]
+    api_response = RecipeApi.request_recipes_for("hot dogs")
+
+    if api_response[:success]
+      @recipes = api_response[:data]
+    else
+      @errors = api_response[:error]
+    end
   end
 
   # GET /recipes/1 or /recipes/1.json

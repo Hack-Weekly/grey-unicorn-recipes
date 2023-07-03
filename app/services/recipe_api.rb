@@ -2,6 +2,10 @@ class RecipeApi
 
   attr_accessor :last_query, :offset
 
+  def self.request_recipes_for(query)
+    new.request_recipes(user_query: query)
+  end
+
   def initialize
     @last_query = ""
     @offset = 0
