@@ -331,19 +331,17 @@ DEPENDENCIES
   faraday
   image_processing (~> 1.2)
   inline_svg (~> 1.8)
-  dotenv-rails
-  faraday
   jbuilder
   jsbundling-rails
   mini_magick (~> 4.11)
-  omniauth-github (~> 2.0, >= 2.0.1)
+  omniauth-github (~> 2.0)
   omniauth-google-oauth2
   omniauth-rails_csrf_protection
   petergate (~> 3.0)
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
-  rails (~> 7.0.5, >= 7.0.5.1)
+  rails (~> 7.0.5)
   redis (~> 4.0)
   selenium-webdriver
   sprockets-rails
