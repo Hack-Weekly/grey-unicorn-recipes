@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :recipes, except: [:index] do
     collection do
+      get "search"
       get "ingredient_field"
     end
   end

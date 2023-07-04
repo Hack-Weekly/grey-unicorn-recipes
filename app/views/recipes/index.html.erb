@@ -1,10 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
+<%= form_with(url: search_recipes_path, method: :get, data: { turbo_stream: true }) do |form| %>
+  <%= form.text_field :query, placeholder: "Search for a recipe..." %>
+  <%= form.submit "Search" %>
+<% end %>
+
 <h1>Recipes</h1>
 
 <div class="container" id="recipes">
-  <div class="row"><% @recipes.each do |recipe| %>
-    <%= render recipe %>
-  <% end %></div>
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </div>
 </div>
-

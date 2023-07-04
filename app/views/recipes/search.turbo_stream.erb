@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "recipes" do %>
+  <div class="row">
+    <% @recipes.each do |recipe| %>
+      <%= render recipe %>
+    <% end %>
+  </div>
+<% end %>

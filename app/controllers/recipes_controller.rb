@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
     api_response = RecipeApi.request_recipes_for("hot dogs")
 
     if api_response[:success]
-      @recipes = api_response[:data]
+      @recipes = api_response[:data].first(8)
     else
       @errors = api_response[:error]
     end
@@ -60,6 +60,25 @@ class RecipesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to recipes_url, notice: "Recipe was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def search
+    query = params[:query]
+    @db_recipes = Recipe.where("title ILIKE ?", "%#{query}%")
+    api_response = RecipeApi.request_recipes_for(query)
+
+    if api_response[:success]
+      @api_recipes = api_response[:data]
+      @recipes = (@db_recipes + @api_recipes).first(8)
+      respond_to do |format|
+        format.turbo_stream
+        format.html { render :index }
+      end
+    else
+      @errors = api_response[:error]
+      flash[:alert] = @errors
+      redirect_to recipes_path
     end
   end
 
