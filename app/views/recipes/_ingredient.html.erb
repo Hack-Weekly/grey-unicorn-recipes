@@ -1,0 +1,21 @@
+<%= fields_for "recipe[ingredients_attributes][#{ingredient.persisted? ? ingredient.id : ingredient.object_id}]", ingredient do |f| %>
+  <div class="mb-3 row">
+    <div class="col-md-3 form-group">
+      <div class="input-group mb-3">
+        <span class="input-group-text">Qty:</span>
+        <%= f.text_field :quantity, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col form-group">
+      <%= f.label :name, class: "form-label" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="col-auto">
+      <div data-action="click->ingredient-fields#remove">
+        <%= button_to "#", remote: true, class: "btn btn-danger" do %>
+          <i class="bi bi-x-lg"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

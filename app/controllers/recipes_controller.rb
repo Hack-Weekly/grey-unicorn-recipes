@@ -63,6 +63,8 @@ class RecipesController < ApplicationController
     end
   end
 
+  def ingredient_field; end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -76,7 +78,7 @@ class RecipesController < ApplicationController
       :title,
       :instructions,
       :author_id,
-      ingredients_attributes: [:name, :quantity, :_destroy]
+      ingredients_attributes: [:id, :name, :quantity, :_destroy]
     )
   end
 end

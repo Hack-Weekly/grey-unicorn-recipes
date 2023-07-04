@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   root to: "recipes#index"
 
-  resources :recipes, except: [:index]
+  resources :recipes, except: [:index] do
+    collection do
+      get "ingredient_field"
+    end
+  end
 end
