@@ -1,6 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-@import 'actiontext.css';
+@import 'actiontext';
+@import 'trix/dist/trix';
 
 .close-flash {
 	color: white;
@@ -14,14 +15,14 @@
 
 .upload-dropzone {
 	background-color: #f7f9fb;
-  outline: 2px dashed #d5d8db;
+	outline: 2px dashed #d5d8db;
 	outline-offset: -12px;
 }
 
 .upload-dropzone img {
-  max-width: 100px;
-  max-height: 100px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
+	max-width: 100px;
+	max-height: 100px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	padding: 5px;
 }
