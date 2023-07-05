@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :search]
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes or /recipes.json
