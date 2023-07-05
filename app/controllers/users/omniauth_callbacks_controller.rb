@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_action :authenticate_user!
-
   def all
     user = User.from_omniauth(request.env["omniauth.auth"], current_user)
     if user.persisted?
@@ -15,9 +13,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  alias_method :facebook, :all
-  alias_method :github, :all
-  alias_method :google_oauth2, :all
+  alias facebook all
+  alias github all
+  alias google_oauth2 all
 
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
