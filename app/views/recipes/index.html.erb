@@ -10,7 +10,7 @@
 <div class="container" id="recipes">
   <div class="row">
     <% @recipes.each do |recipe| %>
-      <%= render recipe %>
+      <%= render partial: "recipe", locals: { recipe: } %>
     <% end %>
   </div>
 </div>

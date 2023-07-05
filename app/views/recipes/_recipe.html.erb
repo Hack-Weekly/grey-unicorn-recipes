@@ -1,12 +1,24 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Title:</strong>
-    <%= recipe.title %>
-  </p>
+<div class="col-md-3">
+  <div class="card mb-4">
+    <div class="card-body" id="<%= dom_id(recipe) %>">
+      <h5 class="card-title">
+        <%= recipe.title %>
+      </h5>
 
-  <p>
-    <strong>Instructions:</strong>
-    <%= recipe.instructions %>
-  </p>
+      <p class="card-text">
+        <strong>Ingredients:</strong>
+        <%= recipe.ingredients %>
+      </p>
 
+      <p class="card-text">
+        <strong>Servings:</strong>
+        <%= recipe.servings %>
+      </p>
+
+      <p class="card-text">
+        <strong>Instructions:</strong>
+        <%= recipe.instructions %>
+      </p>
+    </div>
+  </div>
 </div>
