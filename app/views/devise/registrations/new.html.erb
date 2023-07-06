@@ -41,7 +41,9 @@
           <%= f.submit "Sign up", class: 'btn btn-primary btn-block' %>
         </div>
         <br>
-        <div class="github-login d-grid" data-turbo="false">
+        <%
+=begin%>
+ <div class="github-login d-grid" data-turbo="false">
           <%= button_to user_github_omniauth_authorize_path, format: :html, method: :post, class: "btn btn-dark btn-lg" do %>
           <span class="icon">Login with Github
             <i class="fab fa-github"></i>
@@ -56,6 +58,8 @@
             </span>
           <% end %>
         </div>
+<%
+=end%>
       </div>
 
         <div class="auth-links register-text">
