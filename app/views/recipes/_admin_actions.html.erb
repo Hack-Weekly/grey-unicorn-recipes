@@ -1,0 +1,7 @@
+
+  <nav class="breadcrumb blogcrumb">
+    <%= link_to fa_icon('file-text') %>
+    <%= link_to fa_icon('pencil-square-o'), edit_recipe_path(recipe) %>
+    <%= link_to fa_icon('trash'), recipe, data: { turbo_method: :delete,
+                        turbo_confirm: 'Are you sure?' } %>
+  </nav>

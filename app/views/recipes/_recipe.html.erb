@@ -19,6 +19,9 @@
         <strong>Instructions:</strong>
         <%= recipe.instructions %>
       </p>
+      <% if authorized_to && recipe.is_a?(Recipe)%>
+        <%= render partial: 'recipes/admin_actions', locals: { recipe: recipe } %>
+      <%end %>
     </div>
   </div>
 </div>
