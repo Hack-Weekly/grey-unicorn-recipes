@@ -39,6 +39,12 @@
         <%= form.rich_text_area :instructions, class: "form-label" %>
       </div>
 
+      <%# Visibility Checkbox %>
+      <div class="form-check mb-3">
+        <%= form.check_box :public, class: "form-check-input", type: "checkbox" %>
+        <%= form.label :public, class: "form-check-label" %>
+      </div>
+
       <%# Submit Button %>
       <div>
         <%= form.submit "Create Recipe", class: "btn btn-primary" %>

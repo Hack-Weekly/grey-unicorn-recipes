@@ -66,7 +66,7 @@ class RecipesController < ApplicationController
 
   def search
     query = params[:query]
-    @db_recipes = Recipe.where("title ILIKE ?", "%#{query}%")
+    @db_recipes = Recipe.public_recipes.where("title ILIKE ?", "%#{query}%")
     api_response = RecipeApi.request_recipes_for(query)
 
     if api_response[:success]
@@ -97,6 +97,7 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
       :title,
       :instructions,
+      :public,
       :author_id,
       ingredients_attributes: [:id, :name, :quantity, :_destroy]
     )

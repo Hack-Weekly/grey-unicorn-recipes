@@ -8,4 +8,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, reject_if: :all_blank
 
   validates :title, :instructions, presence: true
+
+  scope :public_recipes, -> { where(public: true) }
 end
