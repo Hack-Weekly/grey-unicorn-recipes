@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def login_helper(style = "")
+  def login_helper(_style = "")
     if !user_signed_in?
       link_to("Register", new_user_registration_path, class: "navbar-item") +
         " ".html_safe +
@@ -36,19 +36,19 @@ module ApplicationHelper
   end
 
   def authorized_to
-    logged_in?(:admin) || logged_in?(:author)
+    logged_in?(:admin) || (logged_in?(:author) && recipe.author(:current_user))
   end
 
   def profile_helper(user)
-    unless user.profile.file.nil?
+    if user.profile.file.nil?
+      gravatar_helper(user)
+    else
       image_tag(
         member.profile.to_s,
         width: 60,
         height: 60,
         style: "border-radius: 50%"
       ).html_safe
-    else
-      gravatar_helper(user)
     end
   end
 

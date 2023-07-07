@@ -52,8 +52,8 @@ input::placeholder {
 		border: 2px solid #8dcb49;
 		border-radius: 50%;
 		font-size: 1.2em;
-		color:white;
-		text-decoration:none;
+		color: white;
+		text-decoration: none;
 	}
 }
 
@@ -68,4 +68,9 @@ input::placeholder {
 		border-radius: 4px;
 		padding: 5px;
 	}
+}
+
+.blogcrumb a {
+	font-size: 1.25em;
+	margin: 0px 10px 0px 10px;
 }

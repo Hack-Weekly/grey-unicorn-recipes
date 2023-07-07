@@ -79,7 +79,7 @@ class RecipesController < ApplicationController
     else
       @errors = api_response[:error]
       flash[:alert] = @errors
-      redirect_to recipes_path
+      redirect_to root_path
     end
   end
 
@@ -99,6 +99,7 @@ class RecipesController < ApplicationController
       :instructions,
       :public,
       :author_id,
+      :servings,
       ingredients_attributes: [:id, :name, :quantity, :_destroy]
     )
   end

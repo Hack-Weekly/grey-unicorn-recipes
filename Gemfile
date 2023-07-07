@@ -25,6 +25,8 @@ gem "omniauth-rails_csrf_protection"
 gem "omniauth-github", "~> 2.0"
 gem "omniauth-google-oauth2"
 gem "carrierwave-aws", "~> 1.5"
+gem "font-awesome-sass", "~> 5.15"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[mri mingw x64_mingw]
