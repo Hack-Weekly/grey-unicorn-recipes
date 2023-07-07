@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    api_response = RecipeApi.request_recipes_for("hot dogs")
+    api_response = RecipeApi.request_recipes_for(random_recipe)
 
     if api_response[:success]
       @recipes = api_response[:data].first(8)

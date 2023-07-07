@@ -18,8 +18,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_out_path_for(resource_or_scope)
+  def after_sign_out_path_for(_resource_or_scope)
     root_url
+  end
+
+  def random_recipe
+    recipe_seed = rand(0..22)
+    recipe_list = ["hotdog", "hamburger", "spaghetti", "ramen", "steak", "cheese cake", "tiramisu", "pizza", "stew",
+                   "chicken picatta", "fried rice", "goulash", "stroganoff", "lamb skewers", "sate", "miso soup", "chex mix", "spinach dip", "grilled chicken", "fried chicken", "salmon"]
+    recipe_list[recipe_seed]
   end
 
   add_flash_types :info, :success, :warning
