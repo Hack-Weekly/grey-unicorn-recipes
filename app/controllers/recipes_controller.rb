@@ -65,7 +65,7 @@ class RecipesController < ApplicationController
   end
 
   def search
-    query = params[:query]
+    query = params[:q]
     @db_recipes = Recipe.public_recipes.where("title ILIKE ?", "%#{query}%")
     api_response = RecipeApi.request_recipes_for(query)
 
@@ -73,7 +73,6 @@ class RecipesController < ApplicationController
       @api_recipes = api_response[:data]
       @recipes = (@db_recipes + @api_recipes).first(8)
       respond_to do |format|
-        format.turbo_stream
         format.html { render :index }
       end
     else
