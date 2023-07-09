@@ -6,3 +6,6 @@ import { application } from './application';
 
 import AlertController from './alert_controller.js';
 application.register('alert', AlertController);
+
+import SearchController from './search_controller.js';
+application.register('search', SearchController);
