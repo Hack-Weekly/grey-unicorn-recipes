@@ -108,6 +108,7 @@ class RecipesController < ApplicationController
       :author_id,
       :author_type,
       :servings,
+      :image,
       ingredients_attributes: [:id, :name, :quantity, :_destroy]
     )
   end
