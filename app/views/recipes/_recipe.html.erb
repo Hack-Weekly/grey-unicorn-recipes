@@ -7,7 +7,11 @@
 
       <p class="card-text">
         <strong>Ingredients:</strong>
-        <%= recipe.ingredients %>
+        <% if recipe.is_a?(Recipe) %>
+          <% recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient.name %></li>
+          <% end %>
+        <% end %>
       </p>
 
       <p class="card-text">
