@@ -20,6 +20,9 @@
         <%= form.label :title, class: "form-label" %>
         <%= form.text_field :title, class: "form-control" %>
       </div>
+      <div id="servings", class="">
+        <%= form.label :servings, class: "form-label"%>
+        <%= form.select :servings, [1, 2, 3, 4, 5, 6, 7, 8], class: "form-control" %>
 
       <%# Ingredients Fields %>
       <div id="ingredients", class="mb-2">
