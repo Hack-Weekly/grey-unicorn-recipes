@@ -3,11 +3,12 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     sessions: "users/sessions",
-    registrations: "users/registrations",
-    omniauth_callbacks: "users/omniauth_callbacks"
+    registrations: "users/registrations"
   }
 
   root to: "recipes#index"
+
+  get "/user/recipes", to: "recipes#user_recipes", as: "user_recipes"
 
   resources :recipes, except: [:index] do
     collection do
