@@ -45,6 +45,8 @@
         <%= form.label :public, class: "form-check-label" %>
       </div>
 
+      <%# Hidden field for author-type %>
+      <% form.hidden_field author_type: %>
       <%# Submit Button %>
       <div>
         <%= form.submit "Create Recipe", class: "btn btn-primary" %>
