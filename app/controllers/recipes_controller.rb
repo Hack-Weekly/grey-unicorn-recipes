@@ -84,6 +84,11 @@ class RecipesController < ApplicationController
 
   def ingredient_field; end
 
+  def user_recipes
+    @user = current_user
+    @user_recipes = @user.recipes
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -98,6 +103,7 @@ class RecipesController < ApplicationController
       :instructions,
       :public,
       :author_id,
+      :author_type,
       :servings,
       ingredients_attributes: [:id, :name, :quantity, :_destroy]
     )
