@@ -9,7 +9,7 @@
         <strong>Ingredients:</strong>
         <% if recipe.is_a?(Recipe) %>
           <% recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient.name %></li>
+            <li><%= ingredient.quantity %> <%= ingredient.name %></li>
           <% end %>
         <% end %>
       </p>
