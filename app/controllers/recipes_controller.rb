@@ -29,6 +29,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.author = current_user
+    @recipe.author_type = current_user.roles
 
     respond_to do |format|
       if @recipe.save
@@ -86,6 +87,8 @@ class RecipesController < ApplicationController
 
   def user_recipes
     @user = current_user
+    puts "User: #{@user.inspect}"
+
     @user_recipes = @user.recipes
   end
 

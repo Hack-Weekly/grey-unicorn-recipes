@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <div class="d-flex justify-content-center my-5">
-  <%= form_with(url: search_recipes_path, method: :get, data: { turbo_stream: true }, class: "d-flex align-items-center searchbar") do |form| %>
+  <%= form_with(url: search_path, method: :get, data: { turbo_stream: true }, class: "d-flex align-items-center searchbar") do |form| %>
     <%= form.text_field(:query, placeholder: "Search for a recipe...", class: "search-input") %>
     <%= button_tag(type: "submit", class: "search-icon") do %>
       <i class="bi bi-search"></i>
@@ -12,7 +12,7 @@
 <div class="container" id="recipes">
   <div class="row">
     <% @user_recipes.each do |recipe| %>
-      <%= render partial: "recipe", locals: { recipe: } %>
+      <%= render partial: "recipe", locals: { recipe: recipe } %>
     <% end %>
   </div>
 </div>
