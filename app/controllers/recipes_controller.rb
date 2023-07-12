@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :search]
   before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :user_recipes
 
   # GET /recipes or /recipes.json
   def index
@@ -87,9 +88,7 @@ class RecipesController < ApplicationController
 
   def user_recipes
     @user = current_user
-    puts "User: #{@user.inspect}"
-
-    @user_recipes = @user.recipes
+    @user_recipes = Recipe.where(author_id: @user)
   end
 
   private
