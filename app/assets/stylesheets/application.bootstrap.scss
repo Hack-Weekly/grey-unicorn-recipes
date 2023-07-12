@@ -74,3 +74,10 @@ input::placeholder {
 	font-size: 1.25em;
 	margin: 0px 10px 0px 10px;
 }
+
+.my-content {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: var(--read-more-line-clamp, 10);
+}

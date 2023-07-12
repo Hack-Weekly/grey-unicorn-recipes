@@ -1,31 +1,36 @@
-<div class="col-md-3">
+<div class="col-md-4" >
   <div class="card mb-4">
-    <div class="card-body" id="<%= dom_id(recipe) %>">
-      <h5 class="card-title">
-        <%= recipe.title %>
-      </h5>
+    <div class="card-body" id="<%= dom_id(recipe) %>" data-controller="read-more" data-read-more-more-text-value="Read more" data-read-more-less-text-value="Read less">
+      <div class= "my-content" data-read-more-target="content">
+        <h5 class="card-title">
+          <%= recipe.title %>
+        </h5>
 
-      <p class="card-text">
-        <strong>Ingredients:</strong>
-        <% if recipe.is_a?(Recipe) %>
-          <% recipe.ingredients.each do |ingredient| %>
-            <li><%= ingredient.quantity %> <%= ingredient.name %></li>
+        <p class="card-text">
+          <strong>Ingredients:</strong>
+          <% if recipe.is_a?(Recipe) %>
+            <% recipe.ingredients.each do |ingredient| %>
+              <li><%= ingredient.quantity %> <%= ingredient.name %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </p>
+        </p>
 
-      <p class="card-text">
-        <strong>Servings:</strong>
-        <%= recipe.servings %>
-      </p>
+        <p class="card-text">
+          <strong>Servings:</strong>
+          <%= recipe.servings %>
+        </p>
 
-      <p class="card-text">
-        <strong>Instructions:</strong>
-        <%= recipe.instructions %>
-      </p>
-      <% if authorized_to && recipe.is_a?(Recipe)%>
-        <%= render partial: 'recipes/admin_actions', locals: { recipe: recipe } %>
-      <%end %>
+        <p class="card-text">
+          <strong>Instructions:</strong>
+          <%= recipe.instructions %>
+        </p>
+
+        <% if authorized_to && recipe.is_a?(Recipe)%>
+          <%= render partial: 'recipes/admin_actions', locals: { recipe: recipe } %>
+        <%end %>
+
+      </div>
+      <button data-action="read-more#toggle" class="btn btn-outline-primary">Read more</button>
     </div>
   </div>
 </div>
