@@ -43,6 +43,7 @@
       </div>
 
       <%# Visibility Checkbox %>
+
       <div class="form-check mb-3">
         <%= form.check_box :public, class: "form-check-input", type: "checkbox" %>
         <%= form.label :public, class: "form-check-label" %>
@@ -53,23 +54,6 @@
       <%# Submit Button %>
       <div>
         <%= form.submit "Create Recipe", class: "btn btn-primary" %>
-      </div>
-    </div>
-
-    <%# Second Form Column %>
-    <div class="col">
-      <div class="mb-3">
-        <label class="form-label">Recipe Image</label>
-      </div>
-
-      <div class="upload-dropzone text-center mb-3 p-4" data-upload-target="dropzone">
-        <i class="bi bi-upload"></i>
-        <p class="small my-2">Drag & Drop image inside dashed region<br><i>or</i></p>
-
-        <%= form.file_field :image, data: { action: "change->upload#handleInputFiles", upload_target: "input" }, class: "position-absolute invisible", accept: "image/jpeg, image/png, image/svg+xml" %>
-        <%= form.label :image, "Choose file", class: "btn btn-primary mb-3" %>
-
-        <div class="upload-gallery d-flex flex-wrap justify-content-center gap-3 mb-0" data-upload-target="gallery"></div>
       </div>
     </div>
   </div>
