@@ -4,6 +4,9 @@
 
 import { application } from './application';
 
+import ReadMore from 'stimulus-read-more';
+application.register('read-more', ReadMore);
+
 import AlertController from './alert_controller.js';
 application.register('alert', AlertController);
 
