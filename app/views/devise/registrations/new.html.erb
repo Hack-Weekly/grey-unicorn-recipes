@@ -29,10 +29,10 @@
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
         </div>
-
+        <br>
         <div class="form-group d-grid">
-          <%= f.label :optional_upload_profile_picture %>
-          <%= f.file_field :profile, class: 'btn btn-primary' %>
+          <label class="btn btn-primary"> upload an optional profile image
+          <%= f.file_field :profile, style: 'display: none;' %>
         </div>
       </div>
 
