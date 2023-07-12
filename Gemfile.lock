@@ -365,6 +365,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  aws-sdk-s3
   bootsnap
   capybara
   carrierwave-aws (~> 1.5)
