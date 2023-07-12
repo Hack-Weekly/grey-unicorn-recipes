@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def random_recipe
     recipe_seed = rand(0..22)
     recipe_list = ["hotdog", "hamburger", "spaghetti", "ramen", "steak", "cheese cake", "tiramisu", "pizza", "stew",
-                   "chicken picatta", "fried rice", "goulash", "stroganoff", "lamb skewers", "sate", "miso soup", "chex mix", "spinach dip", "grilled chicken", "fried chicken", "salmon"]
+                   "chicken picatta", "fried rice", "goulash", "stroganoff", "lamb skewers", "sate", "miso soup", "hummus", "spinach dip", "grilled chicken", "fried chicken", "salmon"]
     recipe_list[recipe_seed]
   end
 
